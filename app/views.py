@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import Http404
 from app.models import Vehiculo
 
 # Create your views here.
@@ -35,3 +36,7 @@ def vehiculoSelect(request):
 def ver(request):
     vehiculo = Vehiculo.objects.all()
     return render(request, "mostrarPrueba.html", {'vehiculo': vehiculo})
+
+def vistaVehiculo(request):
+    vehiculo = Vehiculo.objects.all()
+    return render(request, "vistaVehiculo.html",{"vehiculo":vehiculo})

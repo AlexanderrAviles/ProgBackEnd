@@ -11,11 +11,14 @@ class Color(models.Model):
 class TipoVehiculo(models.Model):
     tipoVehiculo= models.CharField(max_length=30)
 
+class Cilindrada(models.Model):
+    cilindrada = models.IntegerField()    
+
 class Vehiculo(models.Model):
     marcaVehiculo=models.ForeignKey(Marca, on_delete=models.CASCADE)
     color=models.ForeignKey(Color, on_delete=models.CASCADE)
     tipovehiculo= models.ForeignKey(TipoVehiculo, on_delete=models.CASCADE)
-    precio=models.IntegerField(30)
+    precio=models.IntegerField()
     modeloVehiculo=models.CharField(max_length=30)
-    Cantidad=models.IntegerField()
-    url_imagen=models
+    imagen = models.ImageField(null=True,blank=True,upload_to= "images/")
+    cilindrada = models.ForeignKey(Cilindrada, on_delete=models.CASCADE)

@@ -35,48 +35,42 @@
             </div>
         </section>
 
-        <div class="album py-5 bg-light">
-            <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    {% for v in vehiculo %}
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em">Thumbnail</text>
-                            </svg>
-                            <title>Placeholder</title>
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        {% for v in vehiculo %}
+                        <div class="col">
+                            <div class="card shadow-sm">
 
-                            <rect width="100%" height="100%" fill="#55595c" />
-                            </svg>
-
-                            <div class="card-body">
+                                {% if v.imagen %}
+                                <img src="{{v.imagen.url}}" class="">
+                                {% endif %}
+                                </svg>
+                                <div class="card-body">
 
 
-                                <p class="fw-bold mb-2 fs-4">{{v.marcaVehiculo.marcaVehiculo}} {{v.modeloVehiculo}}</p>
-                                <div class="d-flex justify-content-between">
-                                    <p class="card-text mt-5 fw-bold text-primary">Precio: </p>
-                                    <p class="card-text mt-5 fw-bold text-primary   ">${{v.precio}}</p>
-                                </div>
-                                <div class="d-flex justify-content-center ">
-                                    <div class="btn-group ">
-                                        <a href="{% url 'vehiculoSelect' %}"
-                                            class="btn btn-sm btn-outline-primary px-5 fw-bold">Ver
-                                            Detalle</a>
+
+                                    <p class="fw-bold mb-2 fs-4">{{v.marcaVehiculo.marcaVehiculo}} {{v.modeloVehiculo}}
+                                    </p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="card-text mt-5 fw-bold text-primary">Precio: </p>
+                                        <p class="card-text mt-5 fw-bold text-primary   ">${{v.precio}}</p>
+                                    </div>
+                                    <div class="d-flex justify-content-center ">
+                                        <div class="btn-group ">
+                                            <a href="{% url 'vistaVehiculo' %}"
+                                                class="btn btn-sm btn-outline-primary px-5 fw-bold">Ver
+                                                Detalle</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
-        </div>
-
     </main>
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
