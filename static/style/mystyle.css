@@ -1,0 +1,40 @@
+* {
+    font-family: sans-serif;
+}
+
+nav {
+    font-weight: bolder;
+}
+
+#text {
+    font-family: 'Patua One', cursive;
+    color: #104990;
+}
+
+#texto {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+
+span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+#boton{
+    background-color: #104990;
+    border-radius: 20px;
+}
+#boton:hover
+{
+    background-color: rgb(29, 29, 177);
+    box-shadow: 5px 5px 5px rgb(206, 200, 200);
+}
+#lista{
+    border: 10px;
+    border-color: red;
+}

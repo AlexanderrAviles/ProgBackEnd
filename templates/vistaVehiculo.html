@@ -9,39 +9,129 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
     {%include 'header.html'%}
+
     <title>Document</title>
 </head>
 
 <body>
-    {%include 'navBar.html'%}
+
     <main>
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Album example</h1>
-                    <p class="lead text-muted">Something short and leading about the collection below—its contents, the
-                        creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it
-                        entirely.</p>
-                    <p>
-                        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                    </p>
+        {%include 'navBar.html'%}
+        <div class="container">
+            <br>
+            <br>
+            <br>
+            <h1 class="text-center" id="text">{{vehiculo.marcaVehiculo.marcaVehiculo}}
+                {{vehiculo.modeloVehiculo}} </h1>
+            <div class="d-flex justify-content-center mt-5">
+                <div class="p-2 d-flex justify-content-center">
+
+                    {% if vehiculo.imagen %}
+
+                    <img src="{{vehiculo.imagen.url}} " class="d-block w-60 " width="800" height="500">
+
+                    {% endif %}
+                    <div id="lista">
+
+                        <ul class="list-group list-group-flush ms-5">
+                            <h4 class="h5 ms-3" id="texto"
+                                style="font-size: xx-large; color: #104990; font-weight: bold;">
+                                {{vehiculo.marcaVehiculo.marcaVehiculo}} {{vehiculo.modeloVehiculo}}
+                            </h4>
+                            <hr class="ms-3">
+                            <h5 id="texto" class="ms-3">Caracteristicas Generales</h5>
+                            <hr class="ms-3">
+                            <li class="h5 list-group-item list-group-item-action"><span>Marca:</span>
+                                {{vehiculo.marcaVehiculo.marcaVehiculo}}
+                            </li>
+                            <li class="h5 list-group-item list-group-item-action"><span>Modelo:
+                                </span>{{vehiculo.modeloVehiculo}}</li>
+
+                            <li class="h5 list-group-item list-group-item-action"><span>Color: </span>
+                                {{vehiculo.color.colorVehiculo}}
+                            </li>
+                            <li class="h5 list-group-item list-group-item-action"><span> Tipo Vehiculo: </span>
+                                {{vehiculo.tipovehiculo.tipoVehiculo}}</li>
+                            <li class="h5 list-group-item list-group-item-action"><span>Cilindrada:</span>
+                                {{vehiculo.cilindrada.cilindrada}} cc
+                            </li>
+                            <li class="h5 list-group-item list-group-item-action"><span>Rendimiento:
+                                </span>{{vehiculo.rendimiento}} km/l
+                            </li>
+                            <li class="h5 list-group-item list-group-item-action"><span>Transmision:
+                                </span>{{vehiculo.transmision}}</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="container ms-5 mb-4">
+                {% if vehiculo.ficha %}
+
+                <a href="{{vehiculo.ficha.url}}" class="btn btn-primary mt-3 ms-5 p-3" id="boton"><i class="bi bi-download"></i> Ver Ficha</a>
+                {% endif %}
+            </div>
+            <div class="container ">
+                <div class="d-flex justify-content-center">
+                    {% if vehiculo.imagen2 %}
+
+                    <img src="{{vehiculo.imagen2.url}} " class="d-block w-60 me-3" width="700" height="436">
+
+                    {% endif %}
+
+                    <div class="mt-5 ms-5 text-center">
+                        <h3 id="texto">
+                            {{vehiculo.desctitulo}}
+                        </h3>
+                        <p id="texto">
+                            {{vehiculo.desc}}
+                        </p>
+                    </div>
                 </div>
             </div>
-        </section>
-        <div class="container">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <img src="{{vehiculo.imagen}}" alt="">
-                <rect width="50%" height="100%" fill="#55595c" /><text x="23%" y="50%" fill="#eceeef"
-                    dy=".3em">Foto Auto</text>
-            </svg>
+            <div class="container ">
+                <div class="d-flex justify-content-center">
+                    <div class="mt-5 me-5 text-center">
+                        <h3 id="texto">
+                            {{vehiculo.desctitulo1}}
+                        </h3>
+                        <p id="texto">
+                            {{vehiculo.desc1}}
+                        </p>
+                    </div>
+                    {% if vehiculo.imagen3 %}
 
-            <h1>Vista Vehiculo</h1>
-            <button>Hola</button>
+                    <img src="{{vehiculo.imagen3.url}} " class="d-block w-60 me-3" width="700" height="436">
+
+                    {% endif %}
+
+
+                </div>
+            </div>
+            <div class="container  ">
+                <div class="d-flex justify-content-center">
+                    {% if vehiculo.imagen4 %}
+
+                    <img src="{{vehiculo.imagen4.url}} " class="d-block w-50 me-3" height="400" width="336">
+
+                    {% endif %}
+
+                    <div class="mt-5 ms-5 text-center">
+                        <h3 id="texto">
+                            {{vehiculo.desctitulo2}}
+                        </h3>
+                        <p id="texto">
+                            {{vehiculo.desc2}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
 
         </div>
+        {%include 'footer.html'%}
     </main>
 </body>
 

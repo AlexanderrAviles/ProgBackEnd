@@ -3,8 +3,11 @@ from django.http import Http404
 from app.models import Vehiculo
 
 # Create your views here.
+
+
 def index(request):
     return render(request, 'index.html')
+
 
 def vehiculos(request):
     cantidad = request.session.get("carrito_cantidad", 0)
@@ -12,6 +15,7 @@ def vehiculos(request):
 
     vehiculos = Vehiculo.objects.all()
     return render(request, 'Vehiculos.html', {"vehiculos": vehiculos, "cantidad_carrito": cantidad, "carrito": carrito})
+
 
 def agregarAlCarro(request, id):
     cantidad = request.session.get("cantidad_carrito", 0)
@@ -22,21 +26,26 @@ def agregarAlCarro(request, id):
     ]
     return vehiculos(request)
 
+
 def sucursal(request):
     return render(request, 'Sucursal.html')
+
 
 def nosotros(request):
     return render(request, 'Nosotros.html')
 
-def vehiculoSelect(request):
+
+def carrito(request):
     vehiculo = Vehiculo.objects.all()
-    return render(request, "verVehiculo.html",{'vehiculo': vehiculo})
+    return render(request, 'carrito.html', {'vehiculo': vehiculo})
 
 
 def ver(request):
     vehiculo = Vehiculo.objects.all()
     return render(request, "mostrarPrueba.html", {'vehiculo': vehiculo})
 
-def vistaVehiculo(request):
-    vehiculo = Vehiculo.objects.all()
-    return render(request, "vistaVehiculo.html",{"vehiculo":vehiculo})
+
+def vistaVehiculo(request, id):
+    vehiculo = Vehiculo.objects.get(id=id)
+    print(vehiculo)
+    return render(request, "vistaVehiculo.html", {"vehiculo": vehiculo})
