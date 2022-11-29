@@ -12,6 +12,12 @@ urlpatterns = [
     path('nosotros/', v.nosotros, name='nosotros'),
     path('vistaVehiculo/<int:id>', v.vistaVehiculo, name='vistaVehiculo'),
     path('ver/', v.ver, name='ver'),
-    path('carrito/', v.carrito),
+    path('carrito/', v.carrito, name="carrito"),
+    path('carrito/<int:vehiculo_id>/', v.agregarCarro, name="agregar"),
+    path('carrito/eliminar/<int:vehiculo_id>/', v.eliminarCarro, name="eliminar"),
+    path('carrito/restar/<int:vehiculo_id>/', v.restarCarro, name="restar"),
+    path('carrito/limpiar/', v.limpiarCarro, name="Clean"),
+    path('carrito/ingresarPedido/', v.ingresarPedido, name="ingresarPedido"),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -9,6 +9,9 @@ nav {
 #text {
     font-family: 'Patua One', cursive;
     color: #104990;
+    letter-spacing: 3px;
+    font-size: 50px;
+    font-weight: bolder;
 }
 
 #texto {
@@ -25,16 +28,37 @@ span {
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
 }
-#boton{
+
+#boton {
+    font-family: 'Montserrat', sans-serif;
     background-color: #104990;
     border-radius: 20px;
 }
-#boton:hover
-{
+
+#botoncarrito {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #104990;
+    border-radius: 20px;
+    color: white;
+}
+
+#boton:hover {
     background-color: rgb(29, 29, 177);
     box-shadow: 5px 5px 5px rgb(206, 200, 200);
 }
-#lista{
+
+#lista {
     border: 10px;
     border-color: red;
+}
+
+#image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all .6s;
+
+}
+
+#image:hover {
+    transform: scale(1.1);
 }

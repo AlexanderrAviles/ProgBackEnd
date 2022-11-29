@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import Http404
-from app.models import Vehiculo
+from app.models import Vehiculo, Detalle
+from app.carrito import Carrito
+from datetime import datetime
 
 # Create your views here.
 
@@ -10,11 +12,8 @@ def index(request):
 
 
 def vehiculos(request):
-    cantidad = request.session.get("carrito_cantidad", 0)
-    carrito = request.session.get("carrito", [])
-
     vehiculos = Vehiculo.objects.all()
-    return render(request, 'Vehiculos.html', {"vehiculos": vehiculos, "cantidad_carrito": cantidad, "carrito": carrito})
+    return render(request, 'Vehiculos.html', {"vehiculos": vehiculos})
 
 
 def agregarAlCarro(request, id):
@@ -49,3 +48,57 @@ def vistaVehiculo(request, id):
     vehiculo = Vehiculo.objects.get(id=id)
     print(vehiculo)
     return render(request, "vistaVehiculo.html", {"vehiculo": vehiculo})
+
+    # agregar productos al carro
+
+
+def agregarCarro(request, vehiculo_id):
+    carrito = Carrito(request)
+    vehiculo = Vehiculo.objects.get(id=vehiculo_id)
+    print(vehiculo)
+    carrito.agregar(vehiculo)
+    return redirect("carrito")
+
+# eliminar el carro
+
+
+def eliminarCarro(request, vehiculo_id):
+    carrito = Carrito(request)
+    vehiculo = Vehiculo.objects.get(id=vehiculo_id)
+    carrito.eliminar(vehiculo)
+    return redirect("carrito")
+
+# restar productos al carro
+
+
+def restarCarro(request, vehiculo_id):
+    carrito = Carrito(request)
+    vehiculo = Vehiculo.objects.get(id=vehiculo_id)
+    carrito.restar(vehiculo)
+    return redirect("carrito")
+
+# limpiar productos del carro
+
+
+def limpiarCarro(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("carrito")
+
+
+def back(request):
+    return redirect("vehiculos")
+
+
+def ingresarPedido(request):
+    if request.method == 'POST':
+        detPed = Detalle()
+        detPed.fecha_pedido = datetime.now()
+        print(request.POST.get("prePed"))
+        detPed.precio_total = int((request.POST.get('prePed')))
+        detPed.save()
+
+        return redirect("index")
+
+    vehiculos = Vehiculo.objects.all()
+    return render(request, "vehiculos.html", {"vehiculos": vehiculos})

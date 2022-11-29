@@ -1,50 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
     {%include 'header.html'%}
     <title>Falcon Motors | Carrito</title>
-    {% load static %}
+</head>
 
-<body>
-    <div class="alert alert-primary" role="alert">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="row" colspan="3" class="text-center">CARRITO</th>
-                </tr>
-                <tr>
-                    <th scope="col">NOMBRE</th>
-                    <th scope="col">PRECIO</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if vehiculos %} {% for v in vehiculos %}
-                <tr>
-                    <td>{{v.nombre}}</td>
-                    <td>{{v.precio}}</td>
-                </tr>
-                {% endfor %} {% else %}
-                <tr>
-                    <td colspan="3">
-                        <div class="alert alert-danger text-center">Sin Productos</div>
-                    </td>
-                </tr>
-                {% endif %}
-                <tr>
-                    <th scope="row">Total:</th>
-                    <td colspan="2">$</td>
-                </tr>
-            </tbody>
-        </table>
+<body class="alert alert-primary">
+    <div class="container">
+
+        <div class="alert alert-primary" role="alert">
+            <h3 scope="row" colspan="3" id="text" class="text-center"><i class="bi bi-cart"></i> CARRITO</h3>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col" id="texto" style="font-weight:bolder ;">NOMBRE</th>
+                        <th scope="col" id="texto" style="font-weight:bolder ;">PRECIO</th>
+                        <th scope="col" id="texto" style="font-weight:bolder ;">CANTIDAD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if request.session.carrito.items %}
+                    {% for key, value in request.session.carrito.items %}
+                    <tr>
+                        <td id="texto">{{value.marcaVehiculo}} {{value.modeloVehiculo}}</td>
+                        <td id="texto">{{value.precio}}</td>
+                        <td id="texto">{{value.cantidad}}
+                            <a href="{% url 'agregar' value.vehiculo_id %}" class="badge btn btn-dark badge-dark">+</a>
+                            <a href="{% url 'restar' value.vehiculo_id %}" class="badge btn btn-dark badge-dark">-</a>
+                        </td>
+                    </tr>
+                    {% endfor %} {% else %}
+                    <tr>
+                        <td colspan="3">
+                            <div class="alert alert-danger text-center">Sin Productos</div>
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end">
+                <form action=" {% url 'ingresarPedido' %}" method="post">
+                    {% csrf_token %}
+
+                    <p id="texto">Total: $ <input  name="prePed" id="transparente" value="{{total_carrito}}" readonly />
+                    </p>
+                    <div>
+                        {% if total_carrito == 0 %}
+                        <button type="submit" class="btn button1 mt-2 me-2 btn-success" disabled>Guardar</button>
+                        <a href="{% url 'Clean' %}" class="btn mt-2 me-2 ms-1 button2 btn-warning">Limpiar</a>
+                        {% else %}
+                        <button type="submit" class="btn button1 mt-2 me-2 btn-success">Guardar</button>
+                        <a href="{% url 'Clean' %}" class="btn button2 mt-2 me-2 ms-1 btn-danger">Limpiar</a>
+                        {% endif %}
+                        <a href="{% url 'vehiculos'%}" class="btn button3 mt-2 ms-1 btn-warning">Volver</a>
+
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="bg">
+        <label class="bg"></label>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
     </div>
 </body>
+
 
 </html>

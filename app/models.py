@@ -51,6 +51,11 @@ class Vehiculo(models.Model):
     desc1 = models.CharField(max_length=2000)
     desctitulo2 = models.CharField(max_length=100)
     desc2 = models.CharField(max_length=2000)
+    cantidad = models.IntegerField()
 
     def __str__(self):
         return str(self.modeloVehiculo)
+
+class Detalle(models.Model):
+    fecha_pedido = models.DateTimeField()
+    precio_total = models.IntegerField()
