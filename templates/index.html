@@ -38,21 +38,21 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="{%static '/carouselinicio/Rav41.jpg'%}"  class="d-block mx-auto" alt="...">
+          <img src="{%static '/carouselinicio/Rav41.jpg'%}" class="d-block mx-auto" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5 class="text-black fw-normal fs-3 text-start">Toyota Rav4</h5>
             <p class="text-black fw-light fs-4 text-start">Compra el tuyo</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="{%static '/carouselinicio/F1502.webp'%}" class="d-block mx-auto alt="...">
+          <img src="{%static '/carouselinicio/F1502.webp'%}" class="d-block mx-auto alt=" ...">
           <div class="carousel-caption d-none d-md-block">
             <h5 class="text-white fw-normal fs-3 text-start">Ford F150 Raptor</h5>
             <p class="text-white fw-light fs-4 text-start">Compra el tuyo</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="{%static '/carouselinicio/Sentra1.jpg'%}"  class="d-block mx-auto" alt="...">
+          <img src="{%static '/carouselinicio/Sentra1.jpg'%}" class="d-block mx-auto" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5 class="text-black fw-normal fs-3 text-start">Nissan Sentra</h5>
             <p class="text-black fw-light fs-4 text-start">Compra el tuyo</p>
@@ -79,104 +79,89 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="images">
-            <a class="" href="#">
-              <img class="bg-white rounded mx-2" src="/static/marcas/Audi.svg"></a>
-            <a href="#">
+            <a href="{% url 'vehiculos'  %}">
               <img class="bg-white rounded mx-2" src="/static/marcas/Citroen.svg"></a>
-            <a href="#">
+            <a href="{% url 'vehiculos'  %}">
               <img class="bg-white rounded mx-2" src="/static/marcas/Fiat.svg"></a>
-            <a href="#">
+            <a href="{% url 'vehiculos'  %}">
               <img class="bg-white rounded mx-2" src="/static/marcas/Ford.svg"></a>
-            <a href="#">
-              <img class="bg-white rounded mx-2" src="/static/marcas/Honda.svg"></a>
-            <a href="#">
-              <img class="bg-white rounded mx-2" src="/static/marcas/Jeep.svg"></a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="images">
-            <a href="#">
-              <img class="bg-white rounded mx-2" src="/static/marcas/Mitsubishi.svg"></a>
-            <a href="#">
+            <a href="{% url 'vehiculos'  %}">
+              <img class="bg-white rounded mx-2" width="105" height="100"
+                src="/static/marcas/ToyotaLogoRedVer.svg.png"></a>
+
+            <a href="{% url 'vehiculos'  %}">
               <img class="bg-white rounded mx-2" src="/static/marcas/Nissan.svg"></a>
-            <a href="#">
-              <img class="bg-white rounded mx-2" src="/static/marcas/SsangYong.svg"></a>
-            <a href="#">
+            <a href="{% url 'vehiculos'  %}">
               <img class="bg-white rounded mx-2" src="/static/marcas/Subaru.svg"></a>
-            <a href="#">
-              <img class="bg-white rounded mx-2" src="/static/marcas/Volkswagen.svg"></a>
-            <a href="#">
-              <img class="bg-white rounded mx-2" src="/static/marcas/Volvo.svg"></a>
+
           </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
-  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-    <div>
-      <h1 class="text-center fw-light fs-3 ">Oportunidades en autos nuevos</h1>
-    </div>
+      <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+        <div>
+          <h1 class="text-center fw-light fs-3 ">Oportunidades en autos nuevos</h1>
+        </div>
 
-    <div class="container mt-5">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="container mt-5">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm">
+                <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+                <img class="bd-placeholder-img card-img-top" src="{%static '/tarjetasinicio/asx.png'%}" alt="..."
+                  width="100%" height="180" role="img" aria-label="Placeholder: Thumbnail" focusable="false">
+                <!-- "{%static '/tarjetasinicio/asx.png'%}" -->
+                <div class="card-body">
+                  <p class="card-text text-start"">Un SUV a toda potencia</p>
+              <div class=" d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-outline-primary">Cotiza aquí</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+              <img class="bd-placeholder-img card-img-top" src="{%static '/tarjetasinicio/ford.jpg'%}" alt="..."
+                width="100%" height="180" role="img" aria-label="Placeholder: Thumbnail" focusable="false">
+              <div class="card-body">
+                <p class="card-text text-start"">Aventurate arriba de un Territory</p>
+              <div class=" d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-outline-primary">Cotiza aquí</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="col">
           <div class="card shadow-sm">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-            <img class="bd-placeholder-img card-img-top" src="{%static '/tarjetasinicio/asx.png'%}" alt="..."
+            <img class="bd-placeholder-img card-img-top" src="{%static '/tarjetasinicio/Volvo-1.png'%}" alt="..."
               width="100%" height="180" role="img" aria-label="Placeholder: Thumbnail" focusable="false">
-            <!-- "{%static '/tarjetasinicio/asx.png'%}" -->
             <div class="card-body">
-              <p class="card-text text-start"">Un SUV a toda potencia</p>
-              <div class=" d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-outline-primary">Cotiza aquí</button>
+              <p class="card-text text-start">Cotiza el nuevo Volvo</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-outline-primary">Cotiza aquí</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card shadow-sm">
-          <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-          <img class="bd-placeholder-img card-img-top" src="{%static '/tarjetasinicio/ford.jpg'%}" alt="..."
-            width="100%" height="180" role="img" aria-label="Placeholder: Thumbnail" focusable="false">
-          <div class="card-body">
-            <p class="card-text text-start"">Aventurate arriba de un Territory</p>
-              <div class=" d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-primary">Cotiza aquí</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-    <div class="col">
-      <div class="card shadow-sm">
-        <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-        <img class="bd-placeholder-img card-img-top" src="{%static '/tarjetasinicio/Volvo-1.png'%}" alt="..."
-          width="100%" height="180" role="img" aria-label="Placeholder: Thumbnail" focusable="false">
-        <div class="card-body">
-          <p class="card-text text-start">Cotiza el nuevo Volvo</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-primary">Cotiza aquí</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
   </div>
 
   {%include 'footer.html'%}

@@ -19,5 +19,13 @@ urlpatterns = [
     path('carrito/limpiar/', v.limpiarCarro, name="Clean"),
     path('carrito/ingresarPedido/', v.ingresarPedido, name="ingresarPedido"),
 
+    path('adminlogin/', v.adminlogin, name='admlogin'),
+    path('menuadmin/', v.menuadmin, name='mnadm'),
+    path('admintv/', v.admintipovehiculo, name='admtv'),
+    path('admincv/', v.admincolorvehiculo, name='admcv'),
+    path('adminmv/', v.adminmarcavehiculo, name='admmv'),
+    path('adminclv/', v.admincilindvehiculo, name='admclv'),
+    path('adminv/', v.adminvehiculo, name='admv'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
