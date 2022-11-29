@@ -8,7 +8,8 @@ from datetime import datetime
 
 
 def index(request):
-    return render(request, 'index.html')
+    vehiculo = Vehiculo.objects.all()
+    return render(request, 'index.html',{"vehiculo":vehiculo})
 
 
 def vehiculos(request):
