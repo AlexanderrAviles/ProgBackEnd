@@ -45,12 +45,12 @@ class Vehiculo(models.Model):
     imagen2 = models.ImageField(null=True, blank=True, upload_to="images/")
     imagen3 = models.ImageField(null=True, blank=True, upload_to="images/")
     imagen4 = models.ImageField(null=True, blank=True, upload_to="images/")
-    desctitulo = models.CharField(max_length=100)
-    desc = models.CharField(max_length=2000)
-    desctitulo1 = models.CharField(max_length=100)
-    desc1 = models.CharField(max_length=2000)
-    desctitulo2 = models.CharField(max_length=100)
-    desc2 = models.CharField(max_length=2000)
+    desctitulo = models.CharField(max_length=100,null=True)
+    desc = models.CharField(max_length=2000,null=True)
+    desctitulo1 = models.CharField(max_length=100,null=True)
+    desc1 = models.CharField(max_length=2000,null=True)
+    desctitulo2 = models.CharField(max_length=100,null=True)
+    desc2 = models.CharField(max_length=2000,null=True)
     cantidad = models.IntegerField()
 
     def __str__(self):
