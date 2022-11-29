@@ -103,3 +103,18 @@ def ingresarPedido(request):
 
     vehiculos = Vehiculo.objects.all()
     return render(request, "vehiculos.html", {"vehiculos": vehiculos})
+
+def adminLogin(request):
+    return render(request, "adminlogin.html")
+def menuadmin(request):
+    return render(request, "menuadmin.html")
+def admintipovehiculo(request):
+    return render(request, "admintipoVehiculo.html")
+def admincolorvehiculo(request):
+    return render(request, "admincolorVehiculo.html")
+def adminmarcavehiculo(request):
+    return render(request, "adminmarcaVehiculo.html")
+def admincilindvehiculo(request):
+    return render(request, "admincilindVehiculo.html")
+def adminvehiculo(request):
+    return render(request, "adminVehiculo.html")

@@ -19,7 +19,7 @@ urlpatterns = [
     path('carrito/limpiar/', v.limpiarCarro, name="Clean"),
     path('carrito/ingresarPedido/', v.ingresarPedido, name="ingresarPedido"),
 
-    path('adminlogin/', v.adminlogin, name='admlogin'),
+    path('adminlogin/', v.adminLogin, name='admlogin'),
     path('menuadmin/', v.menuadmin, name='mnadm'),
     path('admintv/', v.admintipovehiculo, name='admtv'),
     path('admincv/', v.admincolorvehiculo, name='admcv'),
