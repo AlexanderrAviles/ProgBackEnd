@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% include 'header.html' %}
+    <title>Prueba 2</title>
+</head>
+
+<body class="container mt-5">
+    {%include 'loginnavBar.html'%}
+    <div class="alert alert-info display-1 text-center">
+        Registro de Vehículos
+    </div>
+    <form action="#" method="post" class="form-control">
+        <table class="table table-striped table-inverse">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Color</th>
+                    <th>Tipo Vehiculo</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for v in vehiculo %}
+                <tr>
+                    <td class="pe-0">{{ v.marcaVehiculo.marcaVehiculo }}</td>
+                    <td class="pe-0">{{ v.modeloVehiculo }}</td>
+                    <td class="pe-0">{{ v.color.colorVehiculo }}</td>
+                    <td class="pe-0">{{ v.tipovehiculo.tipoVehiculo }}</td>
+                    <td class="pe-0">{{ v.precio }}</td>
+                    <td class="pe-0">{{ v.Cantidad }}</td>
+                    {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</body>
+
+</html>

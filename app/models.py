@@ -24,6 +24,13 @@ class TipoVehiculo(models.Model):
         return self.tipoVehiculo
 
 
+class Transmision(models.Model):
+    Transmision = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.Transmision
+
+
 class Cilindrada(models.Model):
     cilindrada = models.IntegerField()
 
@@ -40,22 +47,39 @@ class Vehiculo(models.Model):
     imagen = models.ImageField(null=True, blank=True, upload_to="images/")
     cilindrada = models.ForeignKey(Cilindrada, on_delete=models.CASCADE)
     rendimiento = models.CharField(max_length=30)
-    transmision = models.CharField(max_length=30)
     ficha = models.FileField(null=True)
     imagen2 = models.ImageField(null=True, blank=True, upload_to="images/")
     imagen3 = models.ImageField(null=True, blank=True, upload_to="images/")
     imagen4 = models.ImageField(null=True, blank=True, upload_to="images/")
-    desctitulo = models.CharField(max_length=100,null=True)
-    desc = models.CharField(max_length=2000,null=True)
-    desctitulo1 = models.CharField(max_length=100,null=True)
-    desc1 = models.CharField(max_length=2000,null=True)
-    desctitulo2 = models.CharField(max_length=100,null=True)
-    desc2 = models.CharField(max_length=2000,null=True)
+    desctitulo = models.CharField(max_length=100, null=True)
+    desc = models.CharField(max_length=2000, null=True)
+    desctitulo1 = models.CharField(max_length=100, null=True)
+    desc1 = models.CharField(max_length=2000, null=True)
+    desctitulo2 = models.CharField(max_length=100, null=True)
+    desc2 = models.CharField(max_length=2000, null=True)
     cantidad = models.IntegerField()
+    transmision = models.ForeignKey(Transmision, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return str(self.modeloVehiculo)
 
 class Detalle(models.Model):
     fecha_pedido = models.DateTimeField()
     precio_total = models.IntegerField()
+
+
+class TipoUsuario(models.Model):
+    nombre = models.CharField(max_length=10, null=False, default='')
+
+
+
+class Usuario(models.Model):
+    nombre = models.CharField(max_length=20)
+    apellido = models.CharField(max_length=20)
+    rut = models.CharField(max_length=10)
+    telefono = models.CharField(max_length=10, default='')
+    correo = models.EmailField()
+    contraseña = models.CharField(max_length=10)
+    estado = models.BooleanField(default=True)
+    terminos = models.BooleanField(default=True)
+    tipoUsuario = models.ForeignKey(
+        TipoUsuario, on_delete=models.CASCADE, null=True )
+    estado = models.BooleanField()
